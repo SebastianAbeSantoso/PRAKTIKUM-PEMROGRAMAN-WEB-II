@@ -10,7 +10,6 @@
     if (isset($_GET['number'])) {
         $n = $_GET['number'];
     }
-
 ?>
 
 <form method="get">
