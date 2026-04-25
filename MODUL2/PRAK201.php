@@ -11,6 +11,8 @@
 </form>
 
 <?php
+$name1 = $name2 = $name3 = "";
+
 if (isset($_GET['name1'], $_GET['name2'], $_GET['name3'])) {
 
     $name1 = $_GET['name1'];
