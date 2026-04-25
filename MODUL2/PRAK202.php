@@ -2,33 +2,34 @@
 <html>
 
 <body>
+  
 <?php
   $nameError = $nimError = $genderError = "";
   $name = $nim = $gender = "";
 
-function test_input($data) {
-    return htmlspecialchars(trim($data));
-}
-
-if (isset($_GET['submit'])) {
-  if (empty($_GET["name"])) {
-    $nameError = "nama tidak boleh kosong";
-  } else {
-    $name = test_input($_GET["name"]);
+  function test_input($data) {
+      return htmlspecialchars(trim($data));
   }
 
-  if (empty($_GET["nim"])) {
-    $nimError = "nim tidak boleh kosong";
-  } else {
-    $nim = test_input($_GET["nim"]);
-  }
+  if (isset($_GET['submit'])) {
+    if (empty($_GET["name"])) {
+      $nameError = "nama tidak boleh kosong";
+    } else {
+      $name = test_input($_GET["name"]);
+    }
+
+    if (empty($_GET["nim"])) {
+      $nimError = "nim tidak boleh kosong";
+    } else {
+      $nim = test_input($_GET["nim"]);
+    }
   
-  if (empty($_GET["gender"])) {
-    $genderError = "jenis kelamin tidak boleh kosong";
-  } else {
-    $gender = test_input($_GET["gender"]);
+    if (empty($_GET["gender"])) {
+      $genderError = "jenis kelamin tidak boleh kosong";
+    } else {
+      $gender = test_input($_GET["gender"]);
+    }
   }
-}
 ?>
 
 <form method="get">
@@ -44,14 +45,15 @@ if (isset($_GET['submit'])) {
 </form>
 
 <?php
-$result = "";
+  $result = "";
 
-if ($name && $nim && $gender) {
-    $result = "$name <br>$nim <br>$gender";
-}
+  if ($name && $nim && $gender) {
+      $result = "$name <br>$nim <br>$gender";
+  }
 
-echo "$result";
+  echo "$result";
 ?>
 
 </body>
+  
 </html>
