@@ -15,17 +15,15 @@
     $bottom = $_POST['bottom'];
     $top = $_POST['top'];
     $image = "https://www.freepnglogos.com/uploads/star-png/file-featured-article-star-svg-wikimedia-commons-8.png";
-do {
-    if (($bottom + 7) % 5 === 0) {
-        echo "<img src='$image' width='20' height='20'> ";
-    } else {
-        echo "$bottom ";
-    }
-    $bottom++;
-} while ($bottom <= $top);
-}
+    do {
+        if (($bottom + 7) % 5 === 0) {
+            echo "<img src='$image' width='20' height='20'> ";
+        } else {
+            echo "$bottom ";
+        }
+        $bottom++;
+    } while ($bottom <= $top); }
 ?>
-
 
 </body>
 
