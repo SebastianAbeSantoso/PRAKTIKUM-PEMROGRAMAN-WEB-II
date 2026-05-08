@@ -4,41 +4,35 @@
 
 <body>
 
-<?php
-    $n = "";
-
-    if (isset($_GET['number'])) {
-        $n = $_GET['number'];
-    }
-?>
-
-<form method="get">
-    Nilai: <input type="text" name="number" value="<?php echo $n; ?>"> <br>
-    <input type="submit" value="Konversi"> <br>
+<form method="post">
+    <input type="text" name="string" value="<?php echo isset($_POST['string']) ? $_POST['string'] : ''; ?>"> 
+    <input type="submit" name="submit" value="submit"> <br>
 </form>
 
 <?php
-    if (isset($_GET['number'])) {
-        if (!is_numeric($n)) { 
-            echo "<h2 style='color:red;'>Bukan angka</h2>";
-    } else {
-        $n = (int) $n;
-        if ($n == 0) {
-            echo "<h2>Hasil: Nol</h2>";
-        } elseif ($n < 10) {
-            echo "<h2>Hasil: Satuan</h2>";
-        } elseif ($n < 20) {
-            echo "<h2>Hasil: Belasan</h2>";
-        } elseif ($n < 100) {
-            echo "<h2>Hasil: Puluhan</h2>";
-        } elseif ($n < 1000) {
-            echo "<h2>Hasil: Ratusan</h2>";
-        } else {
-            echo "<h2>Hasil: Melebihi limit</h2>";
+  if (isset($_POST['submit']) && isset($_POST['string'])) {
+    $string = $_POST['string'];
+    $length = strlen($string);
+    $result = [];
+
+    echo "<h2> Input:</h2> $string";
+
+    for ($i = 0; $i < $length; $i++) {
+        for ($j = 0; $j < $length; $j++) {
+            if ($j == 0) {
+                $first = strtoupper($string[$i]);
+                $result[] = $first;
+            } else {
+                $lower = strtolower($string[$i]);
+                $result[] = $lower;
+            }
         }
     }
-}
+
+    echo "<h2> Output:</h2>" . implode("", $result);
+    }
 ?>
+
 
 </body>
 

@@ -4,55 +4,31 @@
 
 <body>
   
-<?php
-  $nameError = $nimError = $genderError = "";
-  $name = $nim = $gender = "";
-
-  function test_input($data) {
-      return htmlspecialchars(trim($data));
-  }
-
-  if (isset($_GET['submit'])) {
-    if (empty($_GET["name"])) {
-      $nameError = "nama tidak boleh kosong";
-    } else {
-      $name = test_input($_GET["name"]);
-    }
-
-    if (empty($_GET["nim"])) {
-      $nimError = "nim tidak boleh kosong";
-    } else {
-      $nim = test_input($_GET["nim"]);
-    }
-  
-    if (empty($_GET["gender"])) {
-      $genderError = "jenis kelamin tidak boleh kosong";
-    } else {
-      $gender = test_input($_GET["gender"]);
-    }
-  }
-?>
-
-<form method="get">
-    Nama: <input type="text" name="name" value="<?php echo $name; ?>">
-    <span style="color:red">* <?php echo $nameError;?></span> <br> 
-    NIM: <input type="text" name="nim" value="<?php echo $nim; ?>">
-    <span style="color:red">* <?php echo $nimError;?></span><br>
-    Jenis Kelamin: 
-    <span style="color:red">* <?php echo $genderError;?></span><br>
-    <input type="radio" name="gender" value="Laki-Laki" <?php if ($gender == "Laki-Laki") echo "checked"; ?>>Laki-Laki <br>
-    <input type="radio" name="gender" value="Perempuan" <?php if ($gender == "Perempuan") echo "checked"; ?>>Perempuan <br>
-    <input type="submit" name="submit" value="submit"> <br>
+<form method="post">
+    Tinggi : <input type="text" name="height" value="<?php echo isset($_POST['height']) ? $_POST['height'] : ''; ?>"> <br>
+    Alamat Gambar : <input type="text" name="image" value="<?php echo isset($_POST['image']) ? $_POST['image'] : ''; ?>"><br>
+    <input type="submit" name="submit" value="Cetak"> <br> <br>
 </form>
 
 <?php
-  $result = "";
+  if (isset($_POST['submit']) && isset($_POST['height']) && isset($_POST['image'])) {
+    $height = $_POST['height'];
+    $image = $_POST['image'];
+    $row = $height;
 
-  if ($name && $nim && $gender) {
-      $result = "$name <br>$nim <br>$gender";
-  }
+    while ($row >= 1) {
+      $indent = ($height - $row) * 20;
+      echo "<div style='margin-left: " . $indent . "px;'>";
 
-  echo "$result";
+      $column = 1;
+      while ($column <= $row) {
+        echo "<img src='$image' width='20' height='20'>";
+        $column++;
+      }
+      echo "</div>";
+      $row--;
+    }
+}
 ?>
 
 </body>

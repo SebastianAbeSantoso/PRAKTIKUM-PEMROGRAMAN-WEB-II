@@ -5,41 +5,41 @@
 <body>
 
 <?php
-    $n = "";
+    $star = 0;
+    $submitted = false;
+    $image = "https://www.freepnglogos.com/uploads/star-png/file-featured-article-star-svg-wikimedia-commons-8.png";
 
-    if (isset($_GET['number'])) {
-        $n = $_GET['number'];
-    }
-?>
-
-<form method="get">
-    Nilai: <input type="text" name="number" value="<?php echo $n; ?>"> <br>
-    <input type="submit" value="Konversi"> <br>
-</form>
-
-<?php
-    if (isset($_GET['number'])) {
-        if (!is_numeric($n)) { 
-            echo "<h2 style='color:red;'>Bukan angka</h2>";
-    } else {
-        $n = (int) $n;
-        if ($n == 0) {
-            echo "<h2>Hasil: Nol</h2>";
-        } elseif ($n < 10) {
-            echo "<h2>Hasil: Satuan</h2>";
-        } elseif ($n < 20) {
-            echo "<h2>Hasil: Belasan</h2>";
-        } elseif ($n < 100) {
-            echo "<h2>Hasil: Puluhan</h2>";
-        } elseif ($n < 1000) {
-            echo "<h2>Hasil: Ratusan</h2>";
-        } else {
-            echo "<h2>Hasil: Melebihi limit</h2>";
+    if (isset($_POST['submit'])) {
+        $star = (int) $_POST['star'];
+        $submitted = true;
+    } elseif (isset($_POST['action'])) {
+        $star = (int) $_POST['star'];
+        if ($_POST['action'] === 'add') {
+            $star++;
+        } elseif ($_POST['action'] === 'subtract' && $star > 0) {
+            $star--;
         }
+        $submitted = true;
     }
-}
 ?>
+<?php if ($submitted): ?>
+    <p>Jumlah bintang: <?= $star ?></p>
+    <?php for ($i = 0; $i < $star; $i++): ?>
+        <img src="<?= $image ?>" width="75" alt="Star">
+    <?php endfor; ?>
+    <form method="post">
+        <input type="hidden" name="star" value="<?= $star ?>">
+        <button type="submit" name="action" value="add">Tambah</button>
+        <button type="submit" name="action" value="subtract">Kurang</button>
+    </form>
 
+<?php else: ?>
+    <form method="post">
+        <label>Jumlah bintang</label>
+        <input type="number" name="star">
+        <button type="submit" name="submit" value="1">Submit</button>
+    </form>
+<?php endif; ?>
 </body>
 
 </html>
