@@ -35,8 +35,8 @@
 
 <?php else: ?>
     <form method="post">
-        <label>Jumlah bintang</label> <br>
-        <input type="number" name="star">
+        <label>Jumlah bintang</label> 
+        <input type="number" name="star"><br>
         <button type="submit" name="submit" value="1">Submit</button>
     </form>
 <?php endif; ?>
