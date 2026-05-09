@@ -23,7 +23,7 @@
     }
 ?>
 <?php if ($submitted): ?>
-    <p>Jumlah bintang: <?= $star ?></p> <br>
+    <p>Jumlah bintang: <?= $star ?><br></p> 
     <?php for ($i = 0; $i < $star; $i++): ?>
         <img src="<?= $image ?>" width="75" alt="Star">
     <?php endfor; ?>
