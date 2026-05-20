@@ -23,7 +23,7 @@
     }
 ?>
 <?php if ($submitted): ?>
-    <p>Jumlah bintang: <?= $star ?></p>
+    <p>Jumlah bintang: <?= $star ?></p> 
     <?php for ($i = 0; $i < $star; $i++): ?>
         <img src="<?= $image ?>" width="75" alt="Star">
     <?php endfor; ?>
@@ -35,8 +35,8 @@
 
 <?php else: ?>
     <form method="post">
-        <label>Jumlah bintang</label>
-        <input type="number" name="star">
+        <label>Jumlah bintang</label> 
+        <input type="number" name="star"><br>
         <button type="submit" name="submit" value="1">Submit</button>
     </form>
 <?php endif; ?>
