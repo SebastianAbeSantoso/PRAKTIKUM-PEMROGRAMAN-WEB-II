@@ -31,8 +31,6 @@
             <th>Keterangan</th>
         </tr>
 
-
-
 <?php
 $student = array(
     'Ridho' => array(
