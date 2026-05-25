@@ -30,8 +30,6 @@
             <th>Huruf</th>
         </tr>
 
-
-
 <?php
     function getLetterGrade($score) {
         if ($score >= 80) {
