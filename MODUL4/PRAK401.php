@@ -16,7 +16,6 @@
   }
 </style>
 
-
 <form method="post">
     Panjang: <input type="text" name="length" required><br>
     Lebar: <input type="text" name="width" required><br>
