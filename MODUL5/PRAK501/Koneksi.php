@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set('Asia/Makassar'); 
+
 function koneksi() {
     $host = "sql200.byetcluster.com";
     $user = "if0_42010080";           
