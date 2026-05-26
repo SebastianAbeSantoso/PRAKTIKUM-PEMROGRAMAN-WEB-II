@@ -1,12 +1,18 @@
 <?php 
 require 'Model.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
-$data = ['tgl_pinjam'=>'','tgl_kembali'=>'','id_member'=>'','id_buku'=>''];
 
 if ($id) {
     $conn = koneksi();
     $res = mysqli_query($conn, "SELECT * FROM peminjaman WHERE id_peminjaman=$id");
     $data = mysqli_fetch_assoc($res);
+} else {
+    $data = [
+        'tgl_pinjam' => date('Y-m-d'),
+        'tgl_kembali'=> '', 
+        'id_member'  => '', 
+        'id_buku'    => ''
+    ];
 }
 
 if (isset($_POST['submit'])) {
