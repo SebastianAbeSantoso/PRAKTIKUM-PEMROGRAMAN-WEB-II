@@ -4,7 +4,7 @@ function koneksi() {
     $user = "if0_42010080";           
     $db   = "if0_42010080_prak501";   
     
-    $pass = "XYnklpEtrNJe"; 
+    $pass = "x"; 
 
     $conn = mysqli_connect($host, $user, $pass, $db);
     
