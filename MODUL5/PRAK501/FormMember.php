@@ -11,7 +11,6 @@ if (!$id) {
     ];
 }
 
-
 if ($id) {
     $conn = koneksi();
     $res = mysqli_query($conn, "SELECT * FROM member WHERE id_member=$id");
