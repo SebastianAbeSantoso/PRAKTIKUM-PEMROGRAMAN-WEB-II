@@ -1,7 +1,16 @@
 <?php 
 require 'Model.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
-$data = ['nama_member'=>'','nomor_member'=>'','alamat'=>'','tgl_mendaftar'=>'','tgl_terakhir_bayar'=>''];
+if (!$id) {
+    $data = [
+        'nama_member'=>'',
+        'nomor_member'=>'',
+        'alamat'=>'',
+        'tgl_mendaftar' => date('Y-m-d H:i:s'),
+        'tgl_terakhir_bayar' => date('Y-m-d')
+    ];
+}
+
 
 if ($id) {
     $conn = koneksi();
