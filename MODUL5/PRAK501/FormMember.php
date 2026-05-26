@@ -1,6 +1,7 @@
 <?php 
 require 'Model.php';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
+
 if (!$id) {
     $data = [
         'nama_member'=>'',
