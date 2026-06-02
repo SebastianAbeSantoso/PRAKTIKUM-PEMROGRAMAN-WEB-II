@@ -1,24 +1,18 @@
 <?= view('templates/header', ['title' => $title]) ?>
 
-<main class="hero">
-    <section class="hero-content">
-        <p class="label">PRAK601 | CodeIgniter and MVC</p>
+<main class="hero" style="--hero-bg: url('<?= base_url('images/bg-hero.png') ?>');">
+    <div class="hero-bg"></div>
 
-        <h1>Halo, saya <?= esc($profile['full_name']) ?></h1>
+    <p class="hero-label">PRAK601 | CodeIgniter and MVC | <?= esc($profile['nim']) ?></p>
 
-        <p class="subtitle">
-            NIM: <?= esc($profile['nim']) ?> | <?= esc($profile['prodi']) ?>
-        </p>
+    <h1>Halo, saya<br><span><?= esc($profile['full_name']) ?></span></h1>
 
-        <p class="description">
-            <?= esc($profile['tagline']) ?>
-        </p>
+    <p class="hero-quote"><?= esc($profile['tagline']) ?></p>
 
-        <div class="button-group">
-            <a href="/profil" class="btn primary">Lihat Profil</a>
-            <a href="/" class="btn secondary">Beranda</a>
-        </div>
-    </section>
+    <div class="btn-row">
+        <a href="/profil" class="btn btn-solid">Lihat Profil</a>
+        <a href="/" class="btn btn-ghost">Beranda</a>
+    </div>
 </main>
 
 <?= view('templates/footer') ?>
